@@ -2,7 +2,8 @@ import React from 'react';
 import { ImageBackground } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component';
-import { SafeArea, SearchContainer, RestaurantList } from './restaurants.screen.styles';
+import { SearchContainer, RestaurantList } from './restaurants.screen.styles';
+import { SafeArea } from '../../../components/utility/safe-area.component';
 
 export const RestaurantsScreen = () => (
     
