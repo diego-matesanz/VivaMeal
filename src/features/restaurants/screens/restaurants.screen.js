@@ -1,20 +1,19 @@
 import React, { useContext } from 'react';
-import { ImageBackground, View } from 'react-native';
-import { Searchbar, Colors } from 'react-native-paper';
+import { ImageBackground, TouchableOpacity } from 'react-native';
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component';
-import { SearchContainer, RestaurantList, LoadingContainer, Loading } from './restaurants.screen.styles';
+import { RestaurantList, LoadingContainer, Loading } from './restaurants.screen.styles';
 import { SafeArea } from '../../../components/utility/safe-area.component';
 import { RestaurantsContext } from '../../../services/restaurants/restaurant.context';
 import { Search } from '../components/search.component';
 
-export const RestaurantsScreen = () => {
+export const RestaurantsScreen = ({ navigation }) => {
     const { restaurants, isLoading, error } = useContext(RestaurantsContext);
     return (
         <ImageBackground source={require('../../../../assets/bg-main.png')} resizeMode="cover" style={{flex: 1}}>
             <SafeArea>
                 {isLoading && (
                     <LoadingContainer>
-                        <Loading size={50} animating={true} color={Colors.purple300} />
+                        <Loading size={50} animating={true} color={'purple'} />
                     </LoadingContainer>
                 )}
                 <Search />
@@ -22,7 +21,9 @@ export const RestaurantsScreen = () => {
                     data={restaurants}
                     renderItem={({ item }) => {
                         return (
-                            <RestaurantInfoCard restaurant={item} />
+                            <TouchableOpacity onPress={() => navigation.navigate('RestaurantDetail', {rest: item})}>
+                                <RestaurantInfoCard restaurant={item} />
+                            </TouchableOpacity>
                         );
                     }}
                     keyExtractor={(item) => item.name}
