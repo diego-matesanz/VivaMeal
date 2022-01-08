@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Searchbar } from 'react-native-paper';
 import { LocationContext } from '../../../services/location/location.context';
-import { SearchContainer } from './search.styles';
+import { SearchContainer } from './search.component.styles';
 
 export const Search = () => {
     const { keyword, search } = useContext(LocationContext);
@@ -15,6 +15,7 @@ export const Search = () => {
         <SearchContainer>
             <Searchbar
                 placeholder='Search for a location'
+                icon='map'
                 value={searchKeyword}
                 onSubmitEditing={() => {
                     search(searchKeyword)
