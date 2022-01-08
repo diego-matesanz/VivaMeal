@@ -1,5 +1,5 @@
 import { ActivityIndicator } from 'react-native-paper';
-import styled from 'styled-components/native';
+import styled from "styled-components";
 
 export const RestaurantList = styled.FlatList.attrs({
     contentContainerStyle: {
