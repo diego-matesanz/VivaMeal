@@ -35,7 +35,6 @@ export default function App() {
     setTimeout(() => {
       signInWithEmailAndPassword(auth, "diegomatesanzfuente@gmail.com", "password")
       .then((user) => {
-        console.log(user);
         setIsAuthenticated(true);
       })
       .catch((error) => {
